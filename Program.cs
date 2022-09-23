@@ -21,9 +21,14 @@ StreamReader file = File.OpenText("./addresses.csv");
 
 file.ReadLine();
 
-List<Address> addresses = new List<Address>(); 
-while (!file.EndOfStream)
+List<Address> addresses = new List<Address>();
+
+try
 {
+
+    while (!file.EndOfStream)
+{
+
     string line = file.ReadLine();
     string[] stringParts = line.Split(",");
     
@@ -44,11 +49,18 @@ while (!file.EndOfStream)
         zip = int.Parse(stringParts[6]);
     }
 
-    //User user = new User(name, surname);
     Address address = new Address(street, city, province, zip, new User(name, surname));
 
+    addresses.Add(address);
 
 }
+
+}
+catch (Exception e)
+{
+    Console.WriteLine(e.Message);
+}
+
 
 file.Close();
 

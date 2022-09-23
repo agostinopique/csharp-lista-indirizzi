@@ -24,24 +24,25 @@ public class Address
     public string Province { get; set; }
     public int ZIP { get; set; }
 
+    public User User { get; set; }
 
-    public Address(string street, string city, string province, int zip, User)
+    public Address(string street, string city, string province, int zip, User user)
     {
         this.Street = street;
         this.City = city;
         this.Province = province;
         this.ZIP = zip;
+        this.User = user;
     }
 
     public void PrintAddress()
     {
-        User user;
-        Console.WriteLine("-----------");
-        Console.WriteLine("Name: " + user.Name);
-        Console.WriteLine("Surname: " + user.Surname);
-        Console.WriteLine("Street: " + this.Street);
-        Console.WriteLine("City: " + this.City);
-        Console.WriteLine("Province " + this.Province);
-        Console.WriteLine("ZIP: " + this.ZIP);
+        Console.WriteLine($"\t-------------------");
+        Console.WriteLine($"\tName: {User.Name}");
+        Console.WriteLine($"\tSurname: {User.Surname}");
+        Console.WriteLine($"\tStreet: {this.Street}");
+        Console.WriteLine($"\tCity: {this.City}");
+        Console.WriteLine($"\tProvince {this.Province}");
+        Console.WriteLine($"\tZIP: {this.ZIP}");
     }
 }
